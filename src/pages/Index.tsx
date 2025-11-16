@@ -51,13 +51,14 @@ const Index = () => {
           </div>
           
           {/* 📝 WEEK 1: Students customize this title with their name */}
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
-            Plug-N-Learn
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-green-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+            Plug-N-Learn: Joshy's Data Engine
           </h1>
           <p className="text-xl text-slate-600 mb-2">Data Insight Engine</p>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+          <p className="text-lnpg text-slate-500 max-w-2xl mx-auto">
             Upload your dataset and instantly discover insights, visualize trends, and explore your data with interactive charts and analytics.
           </p>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto">Josh Octave - Future Conquer of Worlds</p> {/* my addition */}
           {/* 🆕 WEEK 3: Live Event Handling Demo (removed NameInput from homepage) */}
           {/* <div className="mt-8 mb-8 flex justify-center">
             <NameInput />
@@ -136,6 +137,30 @@ const Index = () => {
             }} />
           </>
         )}
+
+        {/* Sticky Footer (inside main container) */}
+        <div className="mt-12">
+          <div className="fixed left-0 right-0 bottom-4 flex justify-center pointer-events-none">
+            <div className="pointer-events-auto max-w-4xl w-full mx-4">
+              <div className="bg-white/80 backdrop-blur-sm border border-green-200 rounded-lg shadow-md px-4 py-3 flex items-center justify-between">
+                <span className="font-medium">Built with React</span>
+                <div className="text-sm text-slate-600">
+                  <span className="font-medium">Joshy Boy</span>
+                  <span className="ml-2 text-xs">© {new Date().getFullYear()}</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Button size="sm" variant="ghost" onClick={() => { setData([]); setFileName(''); }}>
+                    Reset Data
+                  </Button>
+                  <Button size="sm" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                    Back to top
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

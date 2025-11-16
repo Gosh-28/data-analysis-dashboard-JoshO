@@ -9,6 +9,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    "jsx": "react-jsx", //Added to support React 17+ JSX transform
     "noImplicitAny": false,
     "noUnusedParameters": false,
     "skipLibCheck": true,
