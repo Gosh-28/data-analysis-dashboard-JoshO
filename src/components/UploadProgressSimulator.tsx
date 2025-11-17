@@ -15,19 +15,32 @@ const UploadProgressSimulator = () => {
   const startUpload = () => {
     // TODO: Implement upload simulation
     // HINT: You'll need to use setInterval to animate the progress
+    setIsUploading(true);
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setIsUploading(false);
+          return 100;
+        }
+        return prev + 10; // Increment progress by 10% every interval
+      });
+    }, 500);
   };
 
   const resetProgress = () => {
     // TODO: Reset progress back to 0
+    setProgress(0);
   };
 
   const addProgress = () => {
     // TODO: Add 25% to current progress
+    setProgress((prev) => Math.min(prev + 25, 100));
   };
 
   return (
     <div className="progress-container p-6 bg-white rounded-lg shadow-md max-w-md mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-6">File Upload Simulator</h2>
+      <h2 className="text-2xl text-blue-600 font-bold text-center mb-6">Simulation That Simulates Uploading a File Simulator</h2>
       
       {/* 📊 Progress Bar */}
       <div className="mb-4">
@@ -44,6 +57,7 @@ const UploadProgressSimulator = () => {
         <span className="text-3xl font-bold text-blue-600">{progress}%</span>
         <div className="text-sm text-gray-600 mt-2">
           {/* TODO: Add status messages based on progress and upload state */}
+          {isUploading ? 'Uploading your file...' : 'Upload paused or not started.'}
         </div>
       </div>
 
@@ -77,6 +91,9 @@ const UploadProgressSimulator = () => {
       {/* 🎉 Fun progress messages */}
       <div className="text-center mt-4 text-sm text-gray-600">
         {/* TODO: Add different messages based on progress value */}
+        {progress === 0 && "Go ahead, start the upload... 📤"}
+        {progress === 50 && "Halfway, please stay! 🚀"}
+        {progress === 100 && "Upload complete! 🎉"}
         {/* HINT: Use conditional rendering like: */}
         {/* {progress === 0 && "Ready to start!"} */}
         {/* {progress > 50 && "More than halfway there!"} */}

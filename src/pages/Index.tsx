@@ -19,6 +19,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import DataUpload from '@/components/DataUpload';
 import Dashboard from '@/components/Dashboard';
 import { DataRow } from '@/types/data';
+import UploadProgressSimulator from '@/components/UploadProgressSimulator';
 // 🆕 WEEK 3: Import NameInput demo
 // import NameInput from '@/components/NameInput';
 
@@ -71,6 +72,20 @@ const Index = () => {
         {/* <div className="mb-8">
           <UploadProgressSimulator />
         </div> */}
+        <Card className="bg-white/50 backdrop-blur-sm border-purple-200">
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Upload className="mr-3 h-6 w-6 text-purple-600" />
+              Interactive Progress Demo
+            </CardTitle>
+            <CardDescription>
+              Try our upload progress simulator built with React state!
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <UploadProgressSimulator />
+          </CardContent>
+        </Card>
 
         {data.length === 0 ? (
           <>
